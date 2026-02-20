@@ -1,60 +1,122 @@
+:root {
+    --bg-body: #1a202c;
+    --bg-module: #2d3748;
+    --text-main: #e2e8f0;
+    --text-muted: #cbd5e0;
+    --accent-title: #63b3ed;
+    --accent-btn: #3182ce;
+    --accent-btn-hover: #2b6cb0;
+    --shadow-color: rgba(0, 0, 0, 0.5);
+}
+
+body.themePurple {
+    --bg-body: #261335;
+    --bg-module: #352655;
+    --text-main: #dfbaf7;
+    --text-muted: #9c86b6;
+    --accent-title: rgb(163, 126, 248);
+    --accent-btn: #805ad5;
+    --accent-btn-hover: #553c9a;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+}
+
+
+body.themeForest {
+    --bg-body: #1c2620;
+    --bg-module: #27382f;
+    --text-main: #e6f0e9;
+    --text-muted: #a4b8ab;
+    --accent-title: #68d391;
+    --accent-btn: #38a169;
+    --accent-btn-hover: #2f855a;
+    --shadow-color: rgba(0, 0, 0, 0.6);
+}
+
 body {
-    background-color: #141a25;
-    color: #e2e8f0;
-    font-family: 'Chillax', sans-serif;
-    display:flex;
+    background-color: var(--bg-body);
+    color: var(--text-main);
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     margin: 0;
-    padding: 20px;
+    padding: 40px 20px;
     box-sizing: border-box;
+    transition: background-color 0.6s ease, color 0.6s ease;
 }
 
+.layoutContainer {
+    display: flex;
+    gap: 30px;
+    max-width: 1000px;
+    width: 100%;
+    flex-wrap: wrap; 
+    justify-content: center;
+}
 
 .module {
-    background-color: #2d3748;
+    background-color: var(--bg-module);
     border-radius: 16px;
     padding: 40px;
-    max-width: 600px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 10px 30px var(--shadow-color);
+    transition: background-color 0.6s ease, box-shadow 0.6s ease;
+    
     opacity: 0;
     transform: translateY(30px);
     animation: fadeSlideUp 0.8s ease-out forwards;
 }
-h1 {
-    color: #63b3ed;
+
+.mainModule {
+    flex: 2; 
+    min-width: 300px;
+}
+
+.portraitModule {
+    flex: 1;
+    min-width: 250px;
+    max-width: 350px;
+   
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 15px;
+}
+
+h1, h2 {
+    color: var(--accent-title);
     margin-top: 0;
-    font-size: 2.5rem;
     letter-spacing: -0.5px;
+    transition: color 0.6s ease;
 }
 
 p {
     line-height: 1.7;
-    margin-bottom: 30px;
-    font-size: 1.1rem;
-    color: #cbd5e0;
+    margin-bottom: 20px;
+    color: var(--text-muted);
+    transition: color 0.6s ease;
 }
+
 .btn {
-    background-color: #3182ce;
-    color: #ffffff;
+    background-color: var(--accent-btn);
+    color: #ffffff; 
     border: none;
-    padding: 12px 28px;
+    padding: 14px 24px;
     border-radius: 8px;
     font-size: 1rem;
     font-weight: 600;
     cursor: pointer;
+    width: 100%;
     transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
 }
+
 .btn:hover {
-    background-color: #2b6cb0;
-    transform: translateY(-3px); 
-    box-shadow: 0 6px 15px rgba(49, 130, 206, 0.4);
+    background-color: var(--accent-btn-hover);
+    transform: translateY(-3px);
 }
 
 .btn:active {
     transform: translateY(1px);
-    box-shadow: 0 2px 5px rgba(49, 130, 206, 0.4);
 }
 
 @keyframes fadeSlideUp {
